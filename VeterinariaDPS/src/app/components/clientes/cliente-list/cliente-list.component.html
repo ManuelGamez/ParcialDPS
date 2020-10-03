@@ -1,0 +1,28 @@
+<p>product-list works!</p>
+
+<div class="card">
+    <div class="card-body">
+        <h6 class="text-center">
+            List of Products
+        </h6>
+        <table class="table table-sm table-hover">
+            <tbody>
+                <tr *ngFor="let cliente of productList">
+                    <td>{{cliente.$key}}</td>              
+                    <td>{{cliente.name}}</td>
+                    <td>{{cliente.category}}</td>
+                    <td>{{cliente.location}}</td>
+                    <td>{{cliente.price}}</td>
+                    <td>
+                        <a class="btn btn-secondary text-white" (click)="onEdit(cliente)">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger text-white" (click)="onDelete(cliente.$key)">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
