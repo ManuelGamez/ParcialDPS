@@ -49,12 +49,13 @@ export class ClienteListComponent implements OnInit {
         });
       });
   }
+  
   /* 
    Recibe una varible de tipo 'Product' para invocar el servicio de firebase, para actualizarlo
    Para no ocupar el doble enlace de datos ' [(ngModel)]' , se va utilizar 'Object.assign({}, product)'  
   */
- onEdit(product: Clientes) {
-  this.productService.selectedProduct = Object.assign({}, product);
+ onEdit(cliente: Clientes) {
+  this.productService.selectedProduct = Object.assign({}, cliente);
 }
 
 /* 
@@ -62,9 +63,9 @@ export class ClienteListComponent implements OnInit {
  ademas muestra un 'warning' con toastr
 */
 onDelete($key: string) {
-  if (confirm('¿Estás seguro de eliminarlo?')) {
+  if (confirm('¿Estás seguro de eliminar este registro?')) {
     this.productService.deleteProduct($key);
-    this.toastr.warning('Deleted Successfully', 'Product Removed');
+    this.toastr.warning('Eliminado Exitosamente!', 'Cliente Removido');
   }
 }
 

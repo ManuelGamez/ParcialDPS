@@ -1,26 +1,38 @@
-<p>product-list works!</p>
-
 <div class="card">
     <div class="card-body">
-        <h6 class="text-center">
-            List of Products
-        </h6>
-        <table class="table table-sm table-hover">
-            <tbody>
+        <h5 class="text-center">
+            Registros
+        </h5>
+        <table class="table table-bordered" style="display: block;
+        overflow-x: auto;">
+            <thead class="thead-dark">
+            
+                
+                <th >NOMBRE</th>
+                <th>DUI</th>
+                <th>MASCOTA</th>
+                <TH>VISITAS</TH>
+                <th>LLAVE</th>
+                <TH>EDITAR</TH>
+                <th>BORRAR</th>
+            </thead>
+                <tbody>
                 <tr *ngFor="let cliente of productList">
-                    <td>{{cliente.$key}}</td>              
+                                 
                     <td>{{cliente.name}}</td>
                     <td>{{cliente.category}}</td>
                     <td>{{cliente.location}}</td>
                     <td>{{cliente.price}}</td>
+                    <td>{{cliente.$key}}</td> 
                     <td>
-                        <a class="btn btn-secondary text-white" (click)="onEdit(cliente)">
-                            <i class="far fa-edit"></i>
-                        </a>
-                        <a class="btn btn-danger text-white" (click)="onDelete(cliente.$key)">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                    </td>
+                        <a class="btn btn-warning text-white" (click)="onEdit(cliente)">
+                            <i class="fa fa-edit"></i>
+                        </a></td>
+                        <td><a class="btn btn-danger text-white" (click)="onDelete(cliente.$key)">
+                            <i class="fa fa-trash"></i>
+                        </a></td>
+                        
+                    
                 </tr>
             </tbody>
         </table>

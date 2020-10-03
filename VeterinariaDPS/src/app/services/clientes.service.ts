@@ -16,7 +16,8 @@ productList: AngularFireList<any>;
 selectedProduct: Clientes = new Clientes();
   constructor(private firebase: AngularFireDatabase) { }
   // Traer todos los productos desde firebase 
-  getProducts() { // guarda los elementos en la varible 'products'
+  getProducts() { 
+    // guarda los elementos en la varible 'products'
     return this.productList = this.firebase.list('clientes');
   }
 
@@ -30,6 +31,7 @@ selectedProduct: Clientes = new Clientes();
       price: clientes.price
     });
   }
+  
 
   // Actualiza un producto, recibiendo un parametro de tipo Product
   updateProduct(clientes: Clientes) {
