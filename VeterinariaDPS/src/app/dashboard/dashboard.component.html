@@ -1,0 +1,179 @@
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="form-group col-md-12">
+<!-- Encabezado -->
+<section class="py-3">
+<div class="container">
+<div class="row">
+    <div class="col-9">
+        <h1 class="mb-0">Registro de Citas</h1>
+    </div>
+    <div class="col-3 d-flex">
+        <button class="btn btn-primary w-100 align-self-center" type="button" data-toggle="collapse" data-target="#collapseAddorEdit" aria-expanded="false" aria-controls="collapseExample">
+            Nueva Cita
+        </button>
+    </div>
+</div>
+</div>
+</section>
+            </div>
+        </div>
+<!-- Fin Encabezado -->
+
+         <!-- Formulario -->
+         <section class="bg-mix">
+            <div class="container collapse" id="collapseAddorEdit">
+                <div class="card rounded-0">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nombre">Nombre</label>
+                                    <select id="nombre" name="nobre" class="form-control">
+                                        <option selected>Cliente 1</option>
+                                        <option>Cliente 2</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="mascota">Mascota</label>
+                                    <select id="mascota" name="mascota" class="form-control">
+                                        <option selected>Mascota 1</option>
+                                        <option>Mascota 2</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="servicio">Servicio</label>
+                                    <select id="servicio" name="servicio" class="form-control">
+                                        <option selected>Servicio 1</option>
+                                        <option>Servicio 2</option>
+                                    </select>
+                                </div>
+                            </div>                                    
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="Fecha">Fecha</label>
+                                    <input type="date" class="form-control" id="fecha" name="fecha">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="hora">Hora</label>
+                                    <input type="time" class="form-control" id="hora" name="hora">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary align-self-center" type="submit">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fin Formulario -->
+        
+        <!-- Tabla -->
+        <section class="bg-grey">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 my-3">
+                        <div class="card rounded-0">
+                            <div class="card-header bg-light">
+                                <h6 class="font-weight-bold mb-0">Tabla de Datos</h6>
+                            </div>
+                            <div class="card-body table-responsive">
+                                <table class="table table-hover table-sm table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Mascota</th>
+                                        <th scope="col">Servicio</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Hora</th>
+                                        <th scope="col">Acción</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th>Calamardo Tentaculos</th>
+                                        <td>Puppy</td>
+                                        <td>Revisión Médica</td>
+                                        <td>10/10/2020</td>
+                                        <td>13:55 p.m</td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseAddorEdit" aria-expanded="false" aria-controls="collapseExample">
+                                                    <i class="icon ion-md-create"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#ModalView">
+                                                    <i class="icon ion-md-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ModalDelete">
+                                                    <i class="icon ion-md-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fin Tabla -->
+    </div>
+<!-- Modal para Editar-->
+<div class="modal fade" id="ModalView" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-scrollable">
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Información de la cita</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list-group list-group-flush text-center">
+            <li class="list-group-item"><p class="font-weight-bold">Nombre:</p> Calamardo Tentaculos</li>
+            <li class="list-group-item"><p class="font-weight-bold">Mascota:</p> Puppy</li>
+            <li class="list-group-item"><p class="font-weight-bold">Servicio</p> Revisión Médica/li>
+            <li class="list-group-item"><p class="font-weight-bold">Fecha:</p>10/0/2020</li>
+            <li class="list-group-item"><p class="font-weight-bold">Hora:</p> 13:55 p.m</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal">Cerrar</button>
+    </div>
+</div>
+</div>
+</div>
+<!-- Fin Modal para Editar -->
+
+<!-- Modal para Borrar-->
+<div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-scrollable">
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Confirmar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>¿Desea eliminar esta cita?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
+    </div>
+</div>
+</div>
+</div>
+<!-- Fin Modal para Borrar -->
+
+
+<!-- Contenido de Pagina -->
+
+</main>
+<!-- page-content" -->
+
+   
