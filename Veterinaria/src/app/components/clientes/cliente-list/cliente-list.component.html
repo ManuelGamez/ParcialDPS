@@ -1,0 +1,40 @@
+<div class="col md-10">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="text-center">
+                Registros
+            </h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                
+                    
+                    <th >NOMBRE</th>
+                    <th>DUI</th>
+                    <th>MASCOTA</th>
+                    <TH>VISITAS</TH>
+                    <TH>EDITAR</TH>
+                    <th>BORRAR</th>
+                </thead>
+                    <tbody>
+                    <tr *ngFor="let cliente of productList">
+                                     
+                        <td>{{cliente.name}}</td>
+                        <td>{{cliente.category}}</td>
+                        <td>{{cliente.location}}</td>
+                        <td>{{cliente.price}}</td>
+                        <td>
+                            <a class="btn btn-warning text-white" (click)="onEdit(cliente)">
+                                <i class="fa fa-edit"></i>
+                            </a></td>
+                            <td><a class="btn btn-danger text-white" (click)="onDelete(cliente.$key)">
+                                <i class="fa fa-trash"></i>
+                            </a></td>
+                            
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,178 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/"><i class="fa fa-github" aria-hidden="true"></i>Veterinaria Happy Pets</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-github" aria-hidden="true"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/inicio">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/clientes" routerLinkActive="active">Registro Cliente</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/factura">Generar Factura</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"routerLink="/ticket">Buscar Ticket</a>
+      </li>
+      
+
+    </ul>
+    <ul>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user" aria-hidden="true"></i> Bienvenido/a
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/login" routerLinkActive="active">Cerrar Sesion</a>
+          </div>
+        </li>
+    </ul>
+    
+  </div>
+</nav>
+
+<br>
+<br>
+<div class="container">
+    <div class="col md-10">
+        <div class="form-group">
+            <div class="row">
+              <div class="col-8">
+                <input type="text" class="form-control" id="buscar"  placeholder="Ingrese DUI de cliente" name = "buscar" [(ngModel)]="busqueda">
+              </div>
+              <div class="col-4">
+                <button type="button" class="btn btn-primary" (click)="Buscar()">Buscar</button>
+              </div>
+            </div>
+          </div>
+    </div>
+    
+    <div class="col md-10">
+        <div class="card">
+            <div class="card-body">
+    
+                <h5 class="text-center">
+                    Tickets
+                </h5>
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                    
+                        
+                        <th >NOMBRE</th>
+                        <th>DUI</th>
+                        <th>MASCOTA</th>
+                        <TH>COSTO DESCUENTO</TH>
+                        <TH>VER</TH>
+                    </thead>
+                        <tbody>
+                        <tr *ngFor="let factura of facturaList">
+                                         
+                            <td>{{factura.nombre}}</td>
+                            <td>{{factura.dui}}</td>
+                            <td>{{factura.mascota}}</td>
+                            <td>{{factura.costoDescuento}}</td>
+                            <td>
+                                <a class="btn btn-success text-white">
+                                    <i class="fa fa-eye" data-toggle="modal" data-target="#exampleModal" (click)="Seleccion(factura)"></i>
+                                </a></td>                           
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ticket</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="form-group">
+          <div class="row">
+           <div class="col-4">
+             <label for="nombre">Nombre:</label>
+           </div>
+           <div class="col-6">
+             <input type="text" class="form-control" name="nombre" [(ngModel)]="facturacionService.selectedProduct.nombre" disabled>
+           </div>
+          </div>
+         </div>
+         <div class="form-group">
+          <div class="row">
+           <div class="col-4">
+             <label for="nombre">DUI:</label>
+           </div>
+           <div class="col-6">
+             <input type="text" class="form-control" name="dui" [(ngModel)]="facturacionService.selectedProduct.dui" disabled>
+           </div>
+          </div>
+         </div>
+         <div class="form-group">
+          <div class="row">
+           <div class="col-4">
+             <label for="mascota">Mascota:</label>
+           </div>
+           <div class="col-6">
+             <input type="text" class="form-control" name="mascota" [(ngModel)]="facturacionService.selectedProduct.mascota" disabled>
+           </div>
+          </div>
+         </div>
+         <div class="form-group">
+          <div class="row">
+           <div class="col-4">
+             <label for="tratamiento">Tratamiento:</label>
+           </div>
+           <div class="col-6">
+             <input type="text" class="form-control" name="tratamiento" [(ngModel)]="facturacionService.selectedProduct.tratamiento" disabled>
+           </div>
+          </div>
+         </div>
+         <div class="form-group">
+          <div class="row">
+           <div class="col-4">
+             <label for="medicamento">Medicamento:</label>
+           </div>
+           <div class="col-6">
+             <input type="text" class="form-control" name="medicamento" [(ngModel)]="facturacionService.selectedProduct.medicamento" disabled>
+           </div>
+          </div>
+         </div>
+         <div class="form-group">
+          <div class="row">
+           <div class="col-4">
+             <label for="costo">Costo:</label>
+           </div>
+           <div class="col-6">
+             <input type="text" class="form-control" name="costo" [(ngModel)]="facturacionService.selectedProduct.costo" disabled>
+           </div>
+          </div>
+         </div>
+         <div class="form-group">
+          <div class="row">
+           <div class="col-4">
+             <label for="costoDescuento">Costo con Descuento:</label>
+           </div>
+           <div class="col-6">
+             <input type="text" class="form-control" name="costoDescuento" [(ngModel)]="facturacionService.selectedProduct.costoDescuento" disabled>
+           </div>
+          </div>
+         </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

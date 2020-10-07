@@ -1,0 +1,77 @@
+<div class="container py-5">
+  <div class="row ">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+
+          <div  class="card rounded-0" style="background-color:#E4E5E6;">
+            <div class="card-header">
+              <h3 class="mb-0">Iniciar Sesion</h3>
+            </div>
+            <div class="displayTable">
+              <div class="displayTableCell">
+                <div class="authBlock">
+                  <br><br>
+                  <div class="item form-group">
+                    <div class="col-md-12 col-sm-12 ">
+                   
+                    <input type="text" class="form-control" placeholder="Usuario" #userName required>
+                  </div>
+                  </div>
+                  
+                  <div class="item form-group">
+                    <div class="col-md-12 col-sm-12 ">
+                    <input type="password" class="form-control" placeholder="Contraseña" #userPassword required>
+                  </div>
+                  </div>
+                  <div class="d-flex flex-row justify-content-center alig-items-center">
+                  <div class="forgotPassword">
+                    <a  class="badge badge-info" routerLink="/forgot-password">¿Olvido su contraseña?</a>
+                  </div>
+                  </div>
+                  <br>  
+
+                  <!-- Calling SignIn Api from AuthService -->
+                  <div class="btn-group ">
+                    <br>
+                    <div class="col-md-6 col-sm-6 ">
+                    <input type="button" class="btn btn-success btn float-left" value="ingresar"(click)="userService.SignIn(userName.value, userPassword.value)">
+                    </div>
+                    
+                    <div class="col-md-8 col-sm-8">
+                    <button type="button" class="btn btn-danger btn float-left" (click)="userService.GoogleAuth()">
+                      <i class="fab fa-google-plus-g"></i>
+                      Ingresar con Google
+                    </button>
+                  </div>
+                  </div>
+                  <br>
+
+                  
+
+                  <!-- Calling GoogleAuth Api from AuthService -->
+                  <div class="form-group">
+                    
+                  </div>
+
+                  <br> <br>
+
+
+                </div>
+
+                <br>
+
+                <div class="redirectToLogin">
+                  <span>¿No posee un cuenta?  <a class="redirect badge badge-info" routerLink="/register-user"> Registrarte</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--/row-->
+    </div>
+    <!--/col-->
+  </div>
+</div>

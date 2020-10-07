@@ -1,0 +1,141 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/"><i class="fa fa-github" aria-hidden="true"></i>Veterinaria Happy Pets</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-github" aria-hidden="true"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/inicio">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/clientes" routerLinkActive="active">Registro Cliente</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/factura">Generar Factura</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/ticket">Buscar Ticket</a>
+      </li>
+      
+
+    </ul>
+    <ul>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user" aria-hidden="true"></i> Bienvenido
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/login" routerLinkActive="active">Cerrar Sesion</a>
+          </div>
+        </li>
+    </ul>
+    
+  </div>
+</nav>
+ 
+
+  <div class="container">
+    
+  <h1 class="display-2 text-center">Facturacion</h1>
+
+  <!-- <form> -->
+    
+      <div class="form-group">
+        <div class="row">
+          <div class="col-6">
+            <label for="Nombre">Nombre Cliente</label>
+            <input type="text" class="form-control" placeholder="Ingrese nombre de cliente" name = "nombre" [(ngModel)]="nombre">
+          </div>
+          <div class="col-4">
+            <label for="dui">DUI</label>
+            <input type="text" class="form-control" placeholder="Ingrese DUI" [(ngModel)]="dui">
+            <small class="text-muted">{{mensaje}}</small>
+          </div>
+             <div class="col-2">
+              <small class="text-muted">Verificar visitas</small>
+              <button type="button" class="btn btn-primary" (click)="VisitasCliente()">Visitas</button>
+             </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Mascota">Nombre de Mascota</label>
+        <input type="text" class="form-control" placeholder="Ingrese nombre de la mascota" [(ngModel)]="mascota">
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-6">
+            <label for="Tratamiento">Tratamiento</label>
+            <input type="text" class="form-control" placeholder="Tratamiento aplicado" [(ngModel)]="tratamiento">
+          </div>
+          <div class="col-6">
+            <label for="Medicamento">Medicamento</label>
+            <input type="text" class="form-control"  placeholder="Medicamento recetado" [(ngModel)]="medicamento">
+          </div>
+        </div>
+      </div>
+  <div class="form-group">
+   <div class="row">
+    <div class="col-4">
+      <label for="Costo">Costo</label>
+      <input type="text" class="form-control" [(ngModel)]="costo" #dinero>
+    </div>
+    <div class="col-2">
+      <small class="text-muted">Verificar Descuento</small>
+      <button type="button" class="btn btn-primary" (click)="CalcularDescuento(dinero.value)">Descuento</button>
+     </div>
+   </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+     <div class="col-8">
+       <label for="Costod">{{mensaje2}} </label>
+     </div>
+    </div>
+   </div>
+  <div class="form-group">
+    <div class="row">
+     <div class="col-2">
+      <button type="button" class="btn btn-success" (click)="onSubmit()">Generar</button>
+     </div>
+    </div>
+   </div>
+
+    
+  <!-- </form> -->
+
+  <div class="col md-10">
+    <div class="card">
+        <div class="card-body">
+
+            <h5 class="text-center">
+                Facturas
+            </h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                
+                    
+                    <th >NOMBRE</th>
+                    <th>DUI</th>
+                    <th>MASCOTA</th>
+                    <TH>COSTO</TH>
+                    <TH>COSTO DESCUENTO</TH>
+                </thead>
+                    <tbody>
+                    <tr *ngFor="let factura of facturaList">
+                                     
+                        <td>{{factura.nombre}}</td>
+                        <td>{{factura.dui}}</td>
+                        <td>{{factura.mascota}}</td>
+                        <td>{{factura.costo}}</td>
+                        <td>{{factura.costoDescuento}}</td>
+                            
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  </div>

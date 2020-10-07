@@ -1,0 +1,44 @@
+<hr>
+<h1 class="display-2 text-center">Ingreso de Clientes</h1>
+<div class="card mt-5">
+    <div class="card-body">
+
+        <!-- Cuando el evento onSubmit , suceda se va pasar todo el formulario 'productForm' -->
+        <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+            <!-- 
+
+                Nombre cliente
+                Dui cliente
+               
+                Mascota
+                 NumeroVisita
+            -->
+            <!-- TO UPDATE -->
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" #name="ngModel"
+                    [(ngModel)]="productService.selectedProduct.name" placeholder="Nombre Cliente">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="category" #category="ngModel"
+                    [(ngModel)]="productService.selectedProduct.category" placeholder="DUI">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="location" #location="ngModel"
+                    [(ngModel)]="productService.selectedProduct.location" placeholder="Nombre Mascota">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-success" type="submit">
+                    <i class="fa fa-plus-circle"></i> Agregar Cliente
+                </button>
+                <button class="btn btn-danger" type="reset" (click)="resetForm(productForm)">
+                    <i class="fa fa-times-circle"></i> Limpiar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
